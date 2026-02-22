@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fidelity Canada | Smart Investor Profiler</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">Fidelity</div>
+            <button id="theme-toggle">🌙 Dark Mode</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="app-card">
+            
+            <div id="quiz-view">
+                <h1>Investor Profiler</h1>
+                <p style="text-align: center;">Select your primary investment goal to see a classified portfolio strategy.</p>
+                <div class="options-stack">
+                    <button class="opt-btn" data-risk="low">
+                        <strong>Preservation</strong>
+                        <span>I prioritize safety and protecting my original investment.</span>
+                    </button>
+                    <button class="opt-btn" data-risk="medium">
+                        <strong>Balanced Growth</strong>
+                        <span>I want a mix of safety and moderate long-term growth.</span>
+                    </button>
+                    <button class="opt-btn" data-risk="high">
+                        <strong>Aggressive Growth</strong>
+                        <span>I am focused on maximum returns and can handle market swings.</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="loading-view" style="display:none;">
+                <div class="spinner"></div>
+                <p style="text-align: center;">Analyzing behavioral inputs and classifying risk profile...</p>
+            </div>
+
+            <div id="results-view" style="display:none;">
+                <div class="results-grid">
+                    <div class="results-text">
+                        <span class="badge">Classification Model Result</span>
+                        <h2 id="type-title"></h2>
+                        <p id="type-desc"></p>
+                        <button id="reset-btn">← Back to Profiler</button>
+                    </div>
+                    <div class="results-chart">
+                        <canvas id="allocationChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
