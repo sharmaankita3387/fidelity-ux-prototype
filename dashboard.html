@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fidelity Canada | Unified Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div id="auth-wall" class="overlay-gate">
+        <div class="auth-card">
+            <div class="logo-large">Fidelity</div>
+            <h2>Secure Partner Access</h2>
+            <form id="login-form">
+                <input type="email" placeholder="Institutional Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="btn-auth">Verify Identity</button>
+            </form>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">Fidelity</div>
+            <button id="theme-toggle">🌙 Dark Mode</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="app-card">
+            <div id="quiz-view">
+                <h1 class="hero-title" style="text-align:center;">Strategy Profiler</h1>
+                <p style="text-align:center; color: #64748b;">Select an objective to simulate fractional aggregation.</p>
+                <div class="options-stack">
+                    <button class="opt-btn" data-risk="low"><strong>Capital Preservation</strong><span>Weighted towards Bonds & Fixed Income.</span></button>
+                    <button class="opt-btn" data-risk="medium"><strong>Balanced Growth</strong><span>Optimized 60/40 Equity-Debt split.</span></button>
+                    <button class="opt-btn" data-risk="high"><strong>Aggressive Equity</strong><span>Maximizing growth through Global Innovators.</span></button>
+                </div>
+            </div>
+
+            <div id="loading-view" style="display:none; text-align:center; padding: 50px;">
+                <div class="spinner"></div>
+                <p>Analyzing cross-account tax efficiency...</p>
+            </div>
+
+            <div id="results-view" style="display:none;">
+                <div class="results-grid">
+                    <div class="fractional-breakdown">
+                        <span class="badge">Master Strategy</span>
+                        <h2 id="type-title" style="margin: 10px 0;"></h2>
+                        <div class="account-row"><span>FHSA (First Home)</span><span class="val">$8,000.00</span></div>
+                        <div class="account-row"><span>RRSP Balance</span><span class="val">$42,300.50</span></div>
+                        <div class="account-row"><span>TFSA Balance</span><span class="val">$12,150.25</span></div>
+                        <div class="account-row total"><span>Unified Assets</span><span class="val">$62,450.75</span></div>
+                        <button id="reset-btn" class="reset-link">← Reset Profiler</button>
+                    </div>
+                    <div class="chart-box"><canvas id="allocationChart"></canvas></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="chat-container">
+        <div id="chat-window" style="display:none;">
+            <div id="chat-header">Fidelity AI Concierge</div>
+            <div id="chat-messages"><div class="bot-msg">Welcome. How can I assist with your unified FHSA/TFSA strategy?</div></div>
+            <div id="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Ask about 'Tax' or 'FHSA'...">
+                <button id="chat-send">Send</button>
+            </div>
+        </div>
+        <button id="chat-toggle">💬</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
